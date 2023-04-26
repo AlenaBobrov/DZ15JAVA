@@ -1,6 +1,10 @@
-import org.junit.Assert;
+package ru.netology;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.netology.Game;
+import ru.netology.NotRegisteredException;
+import ru.netology.Player;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

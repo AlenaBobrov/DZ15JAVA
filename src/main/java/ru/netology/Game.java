@@ -1,8 +1,10 @@
+package ru.netology;
+
 import java.util.ArrayList;
 
 public class Game {
 
-    protected ArrayList<Player> players = new ArrayList<>();
+    public ArrayList<Player> players = new ArrayList<>();
 
     public void register(Player player) {
         players.add(player);

@@ -1,3 +1,5 @@
+package ru.netology;
+
 public class Player {
 
     private int id;
@@ -11,13 +13,14 @@ public class Player {
     }
 
     public String getName() {
+
         return name;
     }
 
 
     public int getStrength() {
+
         return strength;
     }
-
 
 }
