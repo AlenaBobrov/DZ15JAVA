@@ -60,7 +60,6 @@ public class PlayerTest {
         game.register(player2);
         game.register(player3);
 
-
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Миша", "Маша");
         });
@@ -73,21 +72,20 @@ public class PlayerTest {
         game.register(player2);
         game.register(player3);
 
-
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Маша", "Коля");
         });
     }
 
     @Test
-    public void searchFall() {
+    public void NoRegisteredPlayers() {
 
         game.register(player1);
+        game.register(player2);
         game.register(player3);
 
-        int expected = 0;
-        int actual = game.findByStrength("Маша");
-
-        assertEquals(expected, actual);
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
+            game.round("Вася", "Петя");
+        });
     }
 }

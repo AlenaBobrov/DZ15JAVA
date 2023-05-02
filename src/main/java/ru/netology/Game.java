@@ -10,42 +10,33 @@ public class Game {
         players.add(player);
     }
 
-    public Player[] findByName(String name) {
-        for (Player player : players) {
-            if (player.getName() == name) {
-                return new Player[]{player};
-            }
-        }
-        return null;
-    }
-
-    public int findByStrength(String name) {
-        for (Player player : players) {
-            if (player.getName() == name) {
-                return player.getStrength();
-            }
-        }
-        return 0;
-    }
-
     public int round(String playerName1, String playerName2) {
-        if (findByName(playerName1) == null) {
-            throw new NotRegisteredException(
-                    "Element with name: " + playerName1 + " not found"
-            );
+        Player player1 = null;
+        Player player2 = null;
+        for (Player player : players) {
+            if (player.getName().equals(playerName1)) {
+                player1 = player;
+            }
+            if (player.getName().equals(playerName2)) {
+                player2 = player;
+            }
         }
-        if (findByName(playerName2) == null) {
+        if (player1 == null) {
             throw new NotRegisteredException(
-                    "Element with name: " + playerName2 + " not found"
-            );
+                    "Element with name: " + playerName1 + " not found");
         }
-        if (findByStrength(playerName1) > findByStrength(playerName2)) {
+        if (player2 == null) {
+            throw new NotRegisteredException(
+                    "Element with name: " + playerName2 + " not found");
+        }
+        if (player1.getStrength() > player2.getStrength()) {
             return 1;
         }
-        if (findByStrength(playerName1) < findByStrength(playerName2)) {
+        if (player1.getStrength() < player2.getStrength()) {
             return 2;
         } else {
             return 0;
         }
     }
 }
+
