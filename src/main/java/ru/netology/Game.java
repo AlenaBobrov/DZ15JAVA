@@ -13,6 +13,7 @@ public class Game {
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
+
         for (Player player : players) {
             if (player.getName().equals(playerName1)) {
                 player1 = player;
@@ -29,10 +30,14 @@ public class Game {
             throw new NotRegisteredException(
                     "Element with name: " + playerName2 + " not found");
         }
-        if (player1.getStrength() > player2.getStrength()) {
+
+        int strength1 = player1.getStrength();
+        int strength2 = player2.getStrength();
+
+        if (strength1 > strength2) {
             return 1;
         }
-        if (player1.getStrength() < player2.getStrength()) {
+        if (strength1 < strength2) {
             return 2;
         } else {
             return 0;
